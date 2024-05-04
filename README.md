@@ -15,3 +15,32 @@ sudo /usr/local/go/bin/go run *.go
 ```
 
 此时执行 `sudo cat /sys/kernel/debug/tracing/trace_pipe | grep "executed in"`，可以观察到打印出来的日志
+
+
+
+go run cmd/kb/main.go generate --tmpl templates/kprobe.c.gtpl,templates/load.go.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute load.go.gtpl
+
+go run cmd/kb/main.go generate --tmpl templates/kprobe.c.gtpl,templates/load.go.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute kprobe.c.gtpl,load.go.gtpl
+
+go run cmd/kb/main.go generate --tmpl examples/dynamic_uprobe/template/uprobe.c.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute uprobe.c.gtpl
+
+
+
+go run cmd/kb/main.go generate --tmpl templates/kprobe.c.gtpl,templates/load.go.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute kprobe.c.gtpl
+
+go run cmd/kb/main.go generate --tmpl templates/uprobe.c.gtpl --conf configs/default.toml --header ./headers --output-dir ./output
+
+
+go run cmd/kb/main.go generate --tmpl examples/dynamic_uprobe/template/uprobe.c.gtpl --conf examples/dynamic_uprobe/conf/default.toml --headr ./headers --output-dir examples/dynamic_uprobe/output/
+
+
+go run cmd/kb/main.go generate --tmpl examples/dynamic_uprobe/template/uprobe.c.gtpl --conf examples/dynamic_uprobe/conf/default.toml --header ./headers --output-dir examples/dynamic_uprobe/output/
+
+ go run cmd/kb/main.go --help
+
+ go run cmd/kb/main.go generate --help
+
+
+go run cmd/kb/main.go generate --tmpl templates/kernel_c/base.c.gtpl,templates/kernel_c/secEventStruct.c.gtpl,templates/kernel_c/secFunction.c.gtpl,templates/kernel_c/secInclude.c.gtpl,templates/kernel_c/secLicense.c.gtpl,templates/kernel_c/secMap.c.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute base.c.gtpl
+
+go run cmd/kb/main.go generate --tmpl templates/kernel_c/base.c.gtpl,templates/kernel_c/secEventStruct.c.gtpl,templates/kernel_c/secFunction.c.gtpl,templates/kernel_c/secInclude.c.gtpl,templates/kernel_c/secLicense.c.gtpl,templates/kernel_c/secMap.c.gtpl --conf configs/default.toml --header ./headers --output-dir ./output --execute base.c.gtpl
