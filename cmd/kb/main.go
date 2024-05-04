@@ -39,6 +39,7 @@ func commandGenerate() *cobra.Command {
 			if err != nil {
 				log.Fatal(err)
 			}
+
 			ctrl.Run()
 		},
 	}
@@ -47,6 +48,7 @@ func commandGenerate() *cobra.Command {
 	cmdGenerate.Flags().StringVar(&headerPath, "header", "", "headers for C code")
 	cmdGenerate.Flags().StringVar(&outputDir, "output-dir", "", "output-dir for codes")
 	cmdGenerate.Flags().StringSliceVar(&executeTmpls, "execute", []string{}, "execute selected templates")
+
 	return cmdGenerate
 }
 
@@ -66,6 +68,7 @@ func commandTranslate() *cobra.Command {
 }
 
 func main() {
+	fmt.Println("Start")
 	log.SetOutput(os.Stderr)
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
